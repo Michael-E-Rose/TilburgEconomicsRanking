@@ -1,0 +1,1 @@
+Raw Economics Schools Research Rankings by year obtained from https://econtop.uvt.nl/rankingsandbox.php.  The period of publications considered for the ranking is that year and the previous four years.  The region is world and all Economics Schools are shown.  Only rankings included for which complete (i.e. five years) observations are available.
