@@ -6,7 +6,7 @@ To ease the use of Economics Departments rankings in my research, I have compile
 
 ## How do I use this?
 
-In folder [combined/](./combined/) you find six files: Two files for each of their weighting method, of which one is the original data and one includes liner interpolation for inner missings.  They report both the rank and their computed scores.  The files are in long format to ease merging.
+In folder [combined/](./combined/) you find six files: Two files for each of their weighting method, of which one is the original data and one includes linear interpolation for inner missings.  They report both the rank and their computed scores.  The files are in long format to ease merging.
 
 Usage in your scripts is easy:
 
