@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # Author:   Michael E. Rose <michael.ernst.rose@gmail.com>
-"""Combines yearly Tilburg Economics Schools rankings for the same
-weighting factor.
+"""Combines yearly Tilburg Economics Schools rankings for the different
+weighting factors.
 """
 
 import os
@@ -22,7 +22,7 @@ def interpolate(df, key):
 
 def read_dataframes(files):
     """Read all Tilburg Economics Ranking files and return wide DataFrame."""
-    print(">>> Dropping duplicates:")
+    print("... Dropping duplicates:")
     for file in files:
         year = os.path.splitext(os.path.basename(file))[0][-4:]
         df = pd.read_csv(file, index_col=1)
@@ -56,6 +56,7 @@ def save_melted(df, fname):
 
 def main():
     for folder in list(os.walk(SOURCE_FOLDER))[0][1]:
+        print(f">>> Reading yearly rankings for {folder.replace('_', ' ')}...")
         files = sorted(glob(f"{SOURCE_FOLDER}{folder}/*.csv"))
 
         df = read_dataframes(files)
@@ -67,9 +68,7 @@ def main():
         df = pd.concat([interpolate(df, 'Rank'), interpolate(df, 'Score')],
                        axis=1)
         save_melted(df, fname=f"{TARGET_FOLDER}{folder}_interpolated.csv")
-
-        print(f">>> Saving ranks for {df.shape[0]:,} Economics Schools for "
-              f"weighting according to {folder.replace('_', ' ')}")
+        print(f"... found ranks for {df.shape[0]:,} Economics Schools for")
 
 
 if __name__ == '__main__':
